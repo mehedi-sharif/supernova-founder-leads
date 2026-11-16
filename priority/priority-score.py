@@ -12,6 +12,7 @@ HUB=r'(new york|nyc|brooklyn|manhattan|san francisco|bay area|palo alto|menlo pa
 US=r'(united states|, (ca|ny|tx|fl|ma|wa|il|co|ga|nc|va|nj|pa|az|ut|tn|or|mn|oh|mi|md|ct|dc)\b|california|texas|florida|atlanta|dallas|houston|san diego|washington|philadelphia|nashville|phoenix|salt lake|portland|minneapolis|raleigh|charlotte|detroit|pittsburgh|baltimore|orlando|tampa|las vegas|san jose|oakland|greater )'
 NONUS=r'(london|united kingdom|israel|tel aviv|canada|toronto|vancouver|india|germany|berlin|paris|france|australia|sydney|singapore|dubai|netherlands|amsterdam|spain|mexico|brazil|ireland|switzerland|sweden)'
 photos=set(re.findall(r'"([a-z0-9%_.-]+)":\{', open('/tmp/idx.js').read()))  # coarse, refined below
+cp=[p for p in cp if h(p['url'])!='bstamos']  # Barry Stamos is the Supernova sender, not a lead
 out=[]
 for p in cp:
   d=D.get(h(p['url']),{})
